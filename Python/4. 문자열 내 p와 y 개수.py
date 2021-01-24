@@ -1,5 +1,4 @@
 def solution(s):
-    answer = True
     s = s.lower()
     p=0
     y=0
