@@ -44,3 +44,6 @@ def solution(answers):
             top.append(3)
             
     return top
+
+
+# enumerate 등 이용하여 좀더 깔끔한 코딩방법을 생각해 볼 것
