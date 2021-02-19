@@ -13,7 +13,11 @@ def solution(strings, n):
 
 # Refactoring 1 (21.02.19)
 def solution(strings, n):
-    strings = [i[n]+i for i in strings]
+    strings = sor[i[n]+i for i in strings]
     strings.sort()
-    
+    return [x[1:] for x in strings]
+
+# Refactoring 2 (21.02.19)
+def solution(strings, n):
+    strings = sorted([i[n]+i for i in strings])
     return [x[1:] for x in strings]
