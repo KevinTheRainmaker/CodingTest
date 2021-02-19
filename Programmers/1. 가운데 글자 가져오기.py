@@ -6,6 +6,3 @@ def solution(s):
     else:
         answer = s[length//2]
     return answer
-
-s = input()
-print(solution(s))
