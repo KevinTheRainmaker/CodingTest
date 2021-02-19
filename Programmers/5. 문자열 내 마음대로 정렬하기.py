@@ -1,3 +1,4 @@
+# First Code
 def solution(strings, n):
     answer = []
     for i in range(len(strings)):
@@ -9,3 +10,10 @@ def solution(strings, n):
         answer.append(strings[i])
         
     return answer
+
+# Refactoring 1 (21.02.19)
+def solution(strings, n):
+    strings = [i[n]+i for i in strings]
+    strings.sort()
+    
+    return [x[1:] for x in strings]
