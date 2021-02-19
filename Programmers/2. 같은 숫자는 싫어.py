@@ -8,7 +8,7 @@ def solution(arr):
         else:
             answer.append(arr[i])
     return answer
-
+    
 # Refactoring 1 (21.02.19)
 def solution(arr):
     answer = []
