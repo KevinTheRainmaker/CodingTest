@@ -21,3 +21,9 @@ def solution(strings, n):
 def solution(strings, n):
     strings = sorted([i[n]+i for i in strings])
     return [x[1:] for x in strings]
+
+# Refactoring 3 (21.02.19)
+def solution(strings, n):
+    return sorted(strings, key=lambda x: x[n])
+    # sorted(정렬대상, key = 정렬 기준)
+    # lambda 인자:표현식 >> 인자를 표현식의 형태로 바꿔줌
