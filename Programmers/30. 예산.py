@@ -1,3 +1,4 @@
+# 첫 번째 풀이 - sort() & Greedy
 def solution(d, budget):
     d.sort()
     n = 0
