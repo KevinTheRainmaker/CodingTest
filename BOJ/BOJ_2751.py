@@ -25,4 +25,29 @@ for a in N:
     print(a)
 
 
-# 내 풀이
+# 내 풀이1: 정렬과 출력을 하나의 프린트문에서 실행 - 여전히 시간초과 & 가독성 안 좋음
+n = int(input())
+print(*sorted([int(input()) for _ in range(n)]), sep = '\n')
+
+
+# 내 풀이2: int형태로 받지않아도 sorted는 예상과 같은 순서로 뱉어낸다 - 역시 시간초과
+n = int(input())
+N = sorted([input() for _ in range(n)])
+print('\n'.join(N))
+# -라고 생각했으나 이 경우 12가 2보다 앞에 정렬된다.
+
+# print(*sorted(['12', '3']),sep='\n')
+# >> 12
+# >> 3
+
+
+# 내 풀이3: import sys
+import sys
+n = int(sys.stdin.readline())
+N = sorted([int(sys.stdin.readline()) for _ in range(n)])
+print(*N, sep='\n')
+# 성공 (메모리: 83956 KB, 시간: 1372 ms)
+
+# input과 달리 sys.stdin.readline은 file object로 취급되어 사용자의 입력만을 받는 buffer를 만들고 그로부터 값을 읽어들인다.
+# sys.stdin.readline()은 사용자의 입력은 물론 개행문자도 입력 받을 수 있으며, 한 번에 읽어들일 문자의 수를 정하는 것이 가능하다.
+# 대량의 입력을 받을 경우 input()과 sys.stdin.readline()의 속도 차이는 무시할 수 없는 수준이다.
