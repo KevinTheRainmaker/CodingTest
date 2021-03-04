@@ -21,7 +21,7 @@ def solution(N, stages):
     answer = [thing[0] for thing in almost]
     return answer
 
-# Refactoring 1
+# Refactoring - peoples의 값이 0이 되어 나누지 못하는 경우 고려하여 list comprehension 내 조건문 삽입
 import operator
 
 def solution(N, stages):
@@ -32,10 +32,6 @@ def solution(N, stages):
     for i in range(N):
         people += a[i+1]
         peoples.append(num-people)
-    failure = dict()
-    for i in range(N):
-        fail = a[i+1]/peoples[i]
-        failure[i+1] = fail
+    failure = {i+1:a[i+1]/peoples[i] if peoples[i] != 0 else a[i+1] for i in range(N)}
     almost = sorted(failure.items(), key=operator.itemgetter(1), reverse=True)
-    answer = [thing[0] for thing in almost]
-    return answer
+    return [thing[0] for thing in almost]
