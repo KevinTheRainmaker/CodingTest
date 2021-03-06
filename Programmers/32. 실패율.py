@@ -1,7 +1,7 @@
 # First Code - RunTime Error
 import operator
 
-def solution(N, stages):
+def solution1(N, stages):
     num = len(stages)
     if (N+1) in stages:
         stages.remove((N+1))
@@ -24,7 +24,7 @@ def solution(N, stages):
 # Refactoring - peoples의 값이 0이 되어 나누지 못하는 경우 고려하여 list comprehension 내 조건문 삽입
 import operator
 
-def solution(N, stages):
+def solution2(N, stages):
     num = len(stages)
     a = {stage+1:stages.count(stage+1) for stage in range(N)}
     peoples = [num]
