@@ -13,9 +13,14 @@
 # 첫째 줄부터 N개의 줄에 점을 정렬한 결과를 출력한다.
 ''''''
 n = int(input())
-dots = [input().split() for _ in range(n)]
+dots = []
+for _ in range(n):
+    x, y = map(int,input().split())
+    dots.append((x,y))
 
 answer = sorted(dots, key = lambda x: (x[0], x[1]))
 
 for i in answer:
     print(*i)
+
+# 성공 (메모리: 51044KB, 시간: 4212 ms)
