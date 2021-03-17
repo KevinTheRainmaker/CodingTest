@@ -25,3 +25,13 @@ def solution2(numbers):
     s = sorted(answer, key = lambda answer:answer[1], reverse = True)
     return "".join([num[0] for num in s])
 # 테스트 케이스 11 실패
+
+
+
+# 세번째 풀이 - 테스트 케이스 11번을 0으로 return하기 위해 int > str 변환 과정 추가
+def solution3(numbers):
+    numbers = list(map(str,numbers))
+    answer = [(number,(str(number)*4)[:4]) for number in numbers]
+    s = sorted(answer, key = lambda answer:answer[1], reverse = True)
+    return str(int("".join([num[0] for num in s])))
+# 성공 (+8)
