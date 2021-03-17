@@ -1,6 +1,7 @@
+# 첫번째 풀이 - 수를 4자리로 늘려 dict에 저장 후 정렬하여 붙이기
 import operator
 
-def solution(numbers):
+def solution1(numbers):
     an = dict()
     for number in numbers:
         if len(str(number)) == 1:
@@ -13,5 +14,14 @@ def solution(numbers):
     answers = sorted(an.items(), key=operator.itemgetter(1), reverse = True)
 
     return "".join([str(answer[0]) for answer in answers])
+# 런타임 에러 발생
 
-# Not Done
+
+# 두번째 풀이 - 단순히 늘리고 잘라 위 과정 반복
+# map과 lambda를 사용했다
+def solution2(numbers):
+    numbers = list(map(str,numbers))
+    answer = [(number,(str(number)*4)[:4]) for number in numbers]
+    s = sorted(answer, key = lambda answer:answer[1], reverse = True)
+    return "".join([num[0] for num in s])
+# 테스트 케이스 11 실패
