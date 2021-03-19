@@ -6,3 +6,13 @@
 -- 09:00부터 19:59까지, 각 시간대별로 입양이 몇 건이나 발생했는지 조회하는 SQL문을 작성해주세요. 
 -- 이때 결과는 시간대 순으로 정렬해야 합니다.
 
+WITH SUB AS (SELECT 
+EXTRACT(HOUR FROM DATETIME) AS HOUR, 
+COUNT(DATETIME) AS COUNT FROM ANIMAL_OUTS 
+GROUP BY 1 
+ORDER BY 1) 
+SELECT * FROM SUB 
+WHERE HOUR BETWEEN 9 AND 19
+
+-- WITH 구문으로 가상 TABLE SUB 형성
+-- EXTRACT는 날짜정보 추출 함수; 괄호 안 날짜 요소에서 YEAR, MONTH, DAY, HOUR, MINUTE, SECOND를 가져올 수 있다
