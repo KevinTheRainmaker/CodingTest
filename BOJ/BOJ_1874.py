@@ -17,3 +17,55 @@
     # 불가능한 경우 NO를 출력한다.
 
 ''''''
+# 스택 기능 구현
+class Stack:
+    def __init__(self):
+        self.len = 0
+        self.list = []
+        
+    def push(self, item):
+        self.list.append(item)
+        self.len += 1
+
+    def pop(self):
+        if self.size() == 0:
+            return -1
+        data = self.list[self.len -1]
+        del self.list[self.len -1]
+        self.len -= 1
+        return data
+
+    def size(self):
+        return self.len
+
+    def top(self):
+        return self.list[-1] if self.size() != 0 else -1
+
+# 코드
+n = int(input())
+
+sequence = []
+answer = []
+idx = 0
+i = 1
+stack = Stack()
+
+for _ in range(n):
+    num = int(input())
+    sequence.append(num)
+
+while(idx != n):
+    if stack.top() != sequence[idx]:
+        stack.push(i)
+        answer.append('+')
+        i += 1
+    else:
+        stack.pop()
+        answer.append('-')
+        idx += 1
+    if len(answer) > 2*n:
+        print('NO')
+        quit()
+
+for a in answer:
+    print(a)
